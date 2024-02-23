@@ -2377,7 +2377,7 @@
     (property "Reference" "#PWR019" (at 170.18 24.13 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "+3.3VA" (at 236.22 -16.51 0)
+    (property "Value" "+3.3VA" (at 167.64 15.24 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "" (at 170.18 20.32 0)
