@@ -26,4 +26,4 @@ Question 1.3.10 : On peut retrouver ces indications dans la datasheet du STM32-V
 Question 1.4.3 : Par exemple dans 0805, 08 représente la longueur du composant et 05 la largeur du composant (0.08 pouces et 0.05 pouces). Les composants sont des composants CMS. Les empruntes permettent de garantir que les pads seront de la bonne dimension pour placer les composants.
 
 Question 1.4.4 : Ils désignent tous des boitiers utilisés pour entourer les composants placés sur notre PCB. LQFP (Low-profile Quad Flat Package) signifie que c'est un boitier de faible hauteur pouvant couvrir des composants avec de nombreuses broches dissimulés sur les 4 extrémités du composants. SOT-223 est utilisé pour les régulateurs de tensions. A ce stade, nous pouvons penser qu'il sera utilisé pour notre régulateur BU33SD5WG-TR. SOIC est un boitier rectangulaire principalement utilisé pour des composants comme le DAC. A ce stade, nous pouvons penser qu'il sera utilisé pour notre DAC MCP4801-E/SN
-
+test
