@@ -27,3 +27,9 @@ Question 1.4.3 : Par exemple dans 0805, 08 représente la longueur du composant 
 
 Question 1.4.4 : Ils désignent tous des boitiers utilisés pour entourer les composants placés sur notre PCB. LQFP (Low-profile Quad Flat Package) signifie que c'est un boitier de faible hauteur pouvant couvrir des composants avec de nombreuses broches dissimulés sur les 4 extrémités du composants. SOT-223 est utilisé pour les régulateurs de tensions. A ce stade, nous pouvons penser qu'il sera utilisé pour notre régulateur BU33SD5WG-TR. SOIC est un boitier rectangulaire principalement utilisé pour des composants comme le DAC. A ce stade, nous pouvons penser qu'il sera utilisé pour notre DAC MCP4801-E/SN
 test
+
+Question 3.1.2
+
+Question 3.1.4
+
+Question 3.1.5
