@@ -33,3 +33,5 @@ Question 3.1.2
 Question 3.1.4
 
 Question 3.1.5
+
+Question 3.2.2 Nous avons une horloge de 16 Mhz, on aura donc un prescaler=frqCPU/frqTIMER=16000
