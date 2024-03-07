@@ -126,29 +126,28 @@ void SystemClock_Config(void)
   while (LL_PWR_IsActiveFlag_VOS() != 0)
   {
   }
-  LL_RCC_MSI_Enable();
+  LL_RCC_HSI_Enable();
 
-   /* Wait till MSI is ready */
-  while(LL_RCC_MSI_IsReady() != 1)
+   /* Wait till HSI is ready */
+  while(LL_RCC_HSI_IsReady() != 1)
   {
 
   }
-  LL_RCC_MSI_SetRange(LL_RCC_MSIRANGE_6);
-  LL_RCC_MSI_SetCalibTrimming(0);
+  LL_RCC_HSI_SetCalibTrimming(16);
   LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_1);
   LL_RCC_SetAPB1Prescaler(LL_RCC_APB1_DIV_1);
   LL_RCC_SetAPB2Prescaler(LL_RCC_APB2_DIV_1);
-  LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_MSI);
+  LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_HSI);
 
    /* Wait till System clock is ready */
-  while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_MSI)
+  while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_HSI)
   {
 
   }
 
-  LL_Init1msTick(4194000);
+  LL_Init1msTick(16000000);
 
-  LL_SetSystemCoreClock(4194000);
+  LL_SetSystemCoreClock(16000000);
   LL_RCC_SetUSARTClockSource(LL_RCC_USART2_CLKSOURCE_PCLK1);
 }
 
