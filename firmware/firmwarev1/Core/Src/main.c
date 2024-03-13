@@ -21,9 +21,14 @@
 #include "adc.h"
 #include "spi.h"
 #include "tim.h"
+#include "Timebase.h"
+#include "led.h"
 #include "usart.h"
 #include "gpio.h"
-#include "led.h"
+#include "Serial.h"
+#include "AnalogIn.h"
+#include "AnalogOut.h"
+#include "RCFilter.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -75,11 +80,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SYSCFG);
-  LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
-
-  /* SysTick_IRQn interrupt configuration */
-  NVIC_SetPriority(SysTick_IRQn, 3);
+  HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -98,6 +99,7 @@ int main(void)
   MX_ADC_Init();
   MX_TIM2_Init();
   MX_SPI1_Init();
+  MX_TIM21_Init();
   /* USER CODE BEGIN 2 */
 
   LedStart();
@@ -108,9 +110,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  // Dans cet exemple, LedPulse fait appel à LedSetValue
+	  // LED SIMPLE
 	  LedPulse();
 	  LL_mDelay(1);
+	  // UART SIMPLE ECHO
+	  //char ch = SerialReceiveChar();
+	  //SerialTransmit(&ch, 1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -150,10 +155,13 @@ void SystemClock_Config(void)
   {
 
   }
-
-  LL_Init1msTick(16000000);
-
   LL_SetSystemCoreClock(16000000);
+
+   /* Update the time base */
+  if (HAL_InitTick (TICK_INT_PRIORITY) != HAL_OK)
+  {
+    Error_Handler();
+  }
   LL_RCC_SetUSARTClockSource(LL_RCC_USART2_CLKSOURCE_PCLK1);
 }
 
