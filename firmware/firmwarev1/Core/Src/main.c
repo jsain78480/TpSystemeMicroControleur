@@ -100,12 +100,17 @@ int main(void)
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
 
+  LedStart();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  // Dans cet exemple, LedPulse fait appel à LedSetValue
+	  LedPulse();
+	  LL_mDelay(1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
