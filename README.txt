@@ -34,4 +34,16 @@ Question 3.1.4
 
 Question 3.1.5
 
-Question 3.2.2 Nous avons une horloge de 16 Mhz, on aura donc un prescaler=frqCPU/frqTIMER=16000
+Question 3.2.2 Nous avons une horloge de 16 Mhz, on aura donc un prescaler=frqCPU/frqTIMER=16000 sachant que notre Counter period (ARR)=255
+
+Question 3.3.3 Nous avons une horloge de 16 Mhz, pour une interruption toutes les millisecondes il faut diviser 1000hz donc un PSC=15999 et ARR=1 permettrait de réaliqze cette interruption
+
+Question 3.3.6 
+
+Question 3.3.7
+
+Question 3.3.8
+
+Question 3.3.9
+
+Question 3.4.5
