@@ -19,15 +19,16 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "adc.h"
-#include "spi.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
-#include "Serial.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "Shell.h"
+#include "led.h"
+#include "Timebase.h"
+#include "Serial.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -48,6 +49,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+
+hShell_t hShell;
 
 /* USER CODE END PV */
 
@@ -76,7 +79,11 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+  LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SYSCFG);
+  LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
+
+  /* SysTick_IRQn interrupt configuration */
+  NVIC_SetPriority(SysTick_IRQn, 3);
 
   /* USER CODE BEGIN Init */
 
@@ -94,13 +101,13 @@ int main(void)
   MX_USART2_UART_Init();
   MX_ADC_Init();
   MX_TIM2_Init();
-  MX_SPI1_Init();
   MX_TIM21_Init();
   /* USER CODE BEGIN 2 */
 
   LedStart();
-  HAL_TIM_Base_Start_IT(&htim21);
-
+  ShellInit(&hShell, &SerialTransmit);
+  LL_USART_EnableIT_RXNE(USART2);
+  TimeBaseStartIT();
 
   /* USER CODE END 2 */
 
@@ -108,18 +115,15 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  //UART et SHELL
+	  //char c = SerialReceiveByte();
+	  //ShellProcess(&hShell, c);
 	  // LED TIMER
-	  if(it_led==1){
-		  LedPulse();
-		  it_led=0;
-	  }
-	  // UART SIMPLE ECHO
-		//char ch = SerialReceiveChar();
-	   // SerialTransmit(&ch, 1);
+	  //}
 	  // LED SIMPLE
 	  //LedPulse();
 	  //LL_mDelay(10);
-	  // UART SIMPLE ECHO
+	  //UART SIMPLE ECHO
 	  //char ch = SerialReceiveChar();
 	  //SerialTransmit(&ch, 1);
     /* USER CODE END WHILE */
@@ -161,13 +165,10 @@ void SystemClock_Config(void)
   {
 
   }
-  LL_SetSystemCoreClock(16000000);
 
-   /* Update the time base */
-  if (HAL_InitTick (TICK_INT_PRIORITY) != HAL_OK)
-  {
-    Error_Handler();
-  }
+  LL_Init1msTick(16000000);
+
+  LL_SetSystemCoreClock(16000000);
   LL_RCC_SetUSARTClockSource(LL_RCC_USART2_CLKSOURCE_PCLK1);
 }
 

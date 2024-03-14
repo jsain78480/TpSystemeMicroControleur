@@ -24,3 +24,11 @@ char SerialReceiveChar (void) {
 	while(LL_USART_IsActiveFlag_RXNE(USART2)==0);
 	return LL_USART_ReceiveData8(USART2);
 }
+
+//Utilisation du SHELL
+
+char SerialReceiveByte(void){
+	while(LL_USART_IsActiveFlag_RXNE(USART2)==0);
+	return LL_USART_ReceiveData8(USART2);
+}
+
