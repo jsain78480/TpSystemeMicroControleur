@@ -60,8 +60,8 @@ all: main-build
 main-build: STM32L021K4.elf secondary-outputs
 
 # Tool invocations
-STM32L021K4.elf STM32L021K4.map: $(OBJS) $(USER_OBJS) /Users/juliensaint-leger/Documents/GitHub/TpSystemeMicroControleur/firmware/firmwarev1/STM32L021K4TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "STM32L021K4.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"/Users/juliensaint-leger/Documents/GitHub/TpSystemeMicroControleur/firmware/firmwarev1/STM32L021K4TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32L021K4.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+STM32L021K4.elf STM32L021K4.map: $(OBJS) $(USER_OBJS) /users/julisain95/Documents/TpSystemeMicroControleur/firmware/firmwarev1/STM32L021K4TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "STM32L021K4.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"/users/julisain95/Documents/TpSystemeMicroControleur/firmware/firmwarev1/STM32L021K4TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32L021K4.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

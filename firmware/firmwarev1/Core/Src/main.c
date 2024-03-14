@@ -21,14 +21,9 @@
 #include "adc.h"
 #include "spi.h"
 #include "tim.h"
-#include "Timebase.h"
-#include "led.h"
 #include "usart.h"
 #include "gpio.h"
 #include "Serial.h"
-#include "AnalogIn.h"
-#include "AnalogOut.h"
-#include "RCFilter.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -64,6 +59,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+extern int it_led;
 
 /* USER CODE END 0 */
 
@@ -103,6 +99,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   LedStart();
+  HAL_TIM_Base_Start_IT(&htim21);
+
 
   /* USER CODE END 2 */
 
@@ -110,9 +108,17 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  // LED TIMER
+	  if(it_led==1){
+		  LedPulse();
+		  it_led=0;
+	  }
+	  // UART SIMPLE ECHO
+		//char ch = SerialReceiveChar();
+	   // SerialTransmit(&ch, 1);
 	  // LED SIMPLE
-	  LedPulse();
-	  LL_mDelay(1);
+	  //LedPulse();
+	  //LL_mDelay(10);
 	  // UART SIMPLE ECHO
 	  //char ch = SerialReceiveChar();
 	  //SerialTransmit(&ch, 1);

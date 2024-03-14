@@ -12,6 +12,7 @@
 
 // Initialisation des données de la structure
 Led_t ledStatus = { 0 , 0 };
+int it_led = 0;
 
 // Fonction pour démarrer le timer
 void LedStart(void){

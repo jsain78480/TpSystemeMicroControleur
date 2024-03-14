@@ -1,4 +1,4 @@
-Core/Src/RCfilter.o: ../Core/Src/RCfilter.c ../Core/Inc/RCfilter.h \
+Core/Src/RCfilter.o: ../Core/Src/RCfilter.c ../Core/Inc/RCFilter.h \
  ../Core/Inc/main.h ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h \
  ../Core/Inc/stm32l0xx_hal_conf.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rcc.h \
@@ -40,7 +40,7 @@ Core/Src/RCfilter.o: ../Core/Src/RCfilter.c ../Core/Inc/RCfilter.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_ll_tim.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_ll_usart.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_ll_gpio.h
-../Core/Inc/RCfilter.h:
+../Core/Inc/RCFilter.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h:
 ../Core/Inc/stm32l0xx_hal_conf.h:

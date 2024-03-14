@@ -41,9 +41,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_ll_usart.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_ll_gpio.h \
  ../Core/Inc/adc.h ../Core/Inc/main.h ../Core/Inc/spi.h ../Core/Inc/tim.h \
- ../Core/Inc/Timebase.h ../Core/Inc/led.h ../Core/Inc/usart.h \
- ../Core/Inc/gpio.h ../Core/Inc/Serial.h ../Core/Inc/AnalogIn.h \
- ../Core/Inc/AnalogOut.h ../Core/Inc/RCFilter.h
+ ../Core/Inc/usart.h ../Core/Inc/gpio.h ../Core/Inc/Serial.h
 ../Core/Inc/main.h:
 ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h:
 ../Core/Inc/stm32l0xx_hal_conf.h:
@@ -90,11 +88,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/main.h:
 ../Core/Inc/spi.h:
 ../Core/Inc/tim.h:
-../Core/Inc/Timebase.h:
-../Core/Inc/led.h:
 ../Core/Inc/usart.h:
 ../Core/Inc/gpio.h:
 ../Core/Inc/Serial.h:
-../Core/Inc/AnalogIn.h:
-../Core/Inc/AnalogOut.h:
-../Core/Inc/RCFilter.h:
