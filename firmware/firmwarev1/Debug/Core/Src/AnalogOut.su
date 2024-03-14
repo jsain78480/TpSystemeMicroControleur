@@ -1,0 +1,4 @@
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_ll_spi.h:297:22:LL_SPI_Enable	16	static
+../Core/Src/AnalogOut.c:14:6:AnalogOutInit	8	static
+../Core/Src/AnalogOut.c:17:6:AnalogOutConvert	16	static
+../Core/Src/AnalogOut.c:20:6:AnalogOutPulse	16	static
