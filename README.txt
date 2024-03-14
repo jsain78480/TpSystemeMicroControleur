@@ -28,22 +28,22 @@ Question 1.4.3 : Par exemple dans 0805, 08 représente la longueur du composant 
 Question 1.4.4 : Ils désignent tous des boitiers utilisés pour entourer les composants placés sur notre PCB. LQFP (Low-profile Quad Flat Package) signifie que c'est un boitier de faible hauteur pouvant couvrir des composants avec de nombreuses broches dissimulés sur les 4 extrémités du composants. SOT-223 est utilisé pour les régulateurs de tensions. A ce stade, nous pouvons penser qu'il sera utilisé pour notre régulateur BU33SD5WG-TR. SOIC est un boitier rectangulaire principalement utilisé pour des composants comme le DAC. A ce stade, nous pouvons penser qu'il sera utilisé pour notre DAC MCP4801-E/SN
 test
 
-Question 3.1.2
+Question 3.1.2 Utiliser des LL au lieu des HAL permet d'utiliser des registres de bas niveau pour avoir une meilleure optimisation. Les pilotes LL sont spécifiques au microp et les fonctions HAL sont plus portables.
 
-Question 3.1.4
+Question 3.1.4 STATIC_INLINE est utilisé pour déclarer une fonction spécifique.
 
-Question 3.1.5
+Question 3.1.5 Le compilateur va insérer les fonctions INLINE au besoin d'appel. C'est pour cette raison que du code est écrit dans ces dernières. Cela remplace un appel de fonction communémement réalisé en C.
 
-Question 3.2.2 Nous avons une horloge de 16 Mhz, on aura donc un prescaler=frqCPU/frqTIMER=16000 sachant que notre Counter period (ARR)=255
+Question 3.2.2 Nous avons une horloge de 16 Mhz, on aura donc un prescaler=63 sachant que notre Counter period (ARR)=255 pour avoir 1khz.
 
-Question 3.3.3 Nous avons une horloge de 16 Mhz, pour une interruption toutes les millisecondes il faut diviser 1000hz donc un PSC=15999 et ARR=1 permettrait de réaliqze cette interruption
+Question 3.3.3 Nous avons une horloge de 16 Mhz, on aura donc un prescaler=63 sachant que notre Counter period (ARR)=255 pour avoir 1khz.
 
-Question 3.3.6 
+Question 3.3.6 La routine du service d'interruption se situe dans le fichier stm32l0xx_it.c
 
-Question 3.3.7
+Question 3.3.7 Les librairies LL sont beaucoup plus bas niveau. Il est nécessaire de connaître le hardware pour les utiliser. Par soucis de mémoire interne au STM32,leur utilisation est rendu obligatoire pour ce TP. 
+              
+Question 3.3.8 Il faut gérer le flag de l'appel de l'interruption. Si ce n'est pas fait celà on peut boucler en continu dans l'interruption sans y sortir.
 
-Question 3.3.8
+Question 3.3.9 Il faut mettre à 0 le flag à la fin de l'interruption.
 
-Question 3.3.9
-
-Question 3.4.5
+Question 3.4.5 Il manque le & devant ch dans SerialTransmit(ch,1)
