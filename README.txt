@@ -40,10 +40,10 @@ Question 3.3.3 Nous avons une horloge de 16 Mhz, on aura donc un prescaler=63 sa
 
 Question 3.3.6 La routine du service d'interruption se situe dans le fichier stm32l0xx_it.c
 
-Question 3.3.7 Les librairies LL sont beaucoup plus bas niveau. Il est nécessaire de connaître le hardware pour les utiliser. Par soucis de mémoire interne au STM32,leur utilisation est rendu obligatoire pour ce TP. 
+Question 3.3.7 Les librairies LL sont beaucoup plus bas niveau et jouent sur les registres. Il est nécessaire de connaître le hardware pour les utiliser. Par soucis de mémoire interne au STM32,leur utilisation est rendu obligatoire pour ce TP. 
               
-Question 3.3.8 Il faut gérer le flag de l'appel de l'interruption. Si ce n'est pas fait celà on peut boucler en continu dans l'interruption sans y sortir.
+Question 3.3.8 Il faut gérer le flag dans l'interruption. Si ce n'est pas fait celà on peut boucler en continu dans l'interruption sans y sortir.
 
-Question 3.3.9 Il faut mettre à 0 le flag à la fin de l'interruption.
+Question 3.3.9 Il faut mettre à 0 le flag à la fin de l'interruption. Dans notre cas; nous avons mis LL_TIM_ClearFlag_UPDATE(TIM21)
 
 Question 3.4.5 Il manque le & devant ch dans SerialTransmit(ch,1)
